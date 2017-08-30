@@ -28,5 +28,10 @@ public class BookService {
 	}
 	
 	public void output() {
+		for (int key : bookMap.keySet()) {
+		System.out.println("Book ID " + key + ": " + bookMap.get(key).getAuthor() + ", " +
+		bookMap.get(key).getTitle() + ", " + bookMap.get(key).getGenre() + ", " + 
+		bookMap.get(key).getYearPublished());
+		}
 	}
 }

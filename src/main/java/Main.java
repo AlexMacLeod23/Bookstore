@@ -36,7 +36,10 @@ class Main {
 				exit = true;
 				break;
 			case "help":
-				System.out.println("Valid commands: \"addBook\", \"deleteBook\", \"end\", \"help\"");
+				System.out.println("Valid commands: \"addBook\", \"deleteBook\", \"end\", \"help\", \"output\"");
+				break;
+			case "output":
+				b.output();
 				break;
 			}
 		} while (!exit);
