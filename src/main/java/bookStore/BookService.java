@@ -1,10 +1,18 @@
 package bookStore;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+
+import tools.JSONconvert;
 
 public class BookService {
 
 	private Map<Integer, Book> bookMap;
+	
 	private int id;
 
 	public void initBookStore() {
@@ -26,6 +34,21 @@ public class BookService {
 	public void deleteBook(Integer bookId) {
 		System.out.println("Removing book: " + bookMap.get(bookId).getTitle());
 		bookMap.remove(bookId);
+	}
+	
+	public void convertToJSON() {
+		try {
+			JSONconvert.mapper.writeValue(new File("C:\\Users\\Administrator\\Documents\\QAC\\Bookstore\\bookstore.json"), bookMap);
+		} catch (JsonGenerationException e) {
+			System.out.println("JSON Geneneration failed");
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			System.out.println("JSON Mapping failed");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("Failed to write file");
+			e.printStackTrace();
+		}
 	}
 	
 	public void output() {

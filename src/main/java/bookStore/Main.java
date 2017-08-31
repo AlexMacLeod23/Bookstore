@@ -1,5 +1,7 @@
 package bookStore;
 
+import tools.Input;
+
 class Main {
 
 	public static void main(String[] args) {
@@ -22,14 +24,19 @@ class Main {
 					try {
 						b.addBook(command[1], command[2], command[3], command[4]);
 					} catch (Exception e) {
+						e.printStackTrace();
 						System.out.println("Invalid arguments, must be \"addBook\" then \"author\", \"title\", \"genre\", \"year published\"");
 					}
+					break;
+				case "convertToJSON":
+					b.convertToJSON();
 					break;
 				case "deleteBook":
 					try {
 						Integer deleteID = Integer.parseInt(command[1]);
 						b.deleteBook(deleteID);
 					} catch (Exception e) {
+						e.printStackTrace();
 						System.out.println("Invalid argument, must state valid ID");
 					}
 					break;
@@ -37,7 +44,7 @@ class Main {
 					exit = true;
 					break;
 				case "help":
-					System.out.println("Valid commands: \"addBook\", \"deleteBook\", \"end\", \"help\", \"output\"");
+					System.out.println("Valid commands: \"addBook\", \"convertToJSON\", \"deleteBook\", \"end\", \"help\", \"output\"");
 					break;
 				case "output":
 					b.output();
