@@ -51,6 +51,21 @@ public class BookService {
 		}
 	}
 	
+	//public void addfromJSON() {
+	//	try {
+	//		JSONconvert.mapper.readValues(new File("C:\\Users\\Administrator\\Documents\\QAC\\Bookstore\\books.json"), bookMap);
+	//	} catch (JsonGenerationException e) {
+	//		System.out.println("JSON Geneneration failed");
+	//		e.printStackTrace();
+	//	} catch (JsonMappingException e) {
+	//		System.out.println("JSON Mapping failed");
+	//		e.printStackTrace();
+	//	} catch (IOException e) {
+	//		System.out.println("Failed to read file");
+	//		e.printStackTrace();
+	//	}
+	//}
+	
 	public void output() {
 		for (int key : bookMap.keySet()) {
 		System.out.println("Book ID " + key + ": " + bookMap.get(key).getAuthor() + ", " +

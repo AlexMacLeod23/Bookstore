@@ -49,6 +49,9 @@ class Main {
 				case "output":
 					b.output();
 					break;
+				//case "creadFromJSON":
+					//b.convertToJSON();
+					//break;
 			}
 		} while (!exit);
 	}
