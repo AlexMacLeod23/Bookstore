@@ -1,19 +1,21 @@
-package bookStore;
-import java.io.File;
-import java.io.IOException;
+package bookStore.service;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.apache.log4j.Logger;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
+import bookStore.Book;
 import tools.JSONconvert;
 
 public class BookService {
 
-	private Map<Integer, Book> bookMap;
+	private static final Logger LOGGER = Logger.getLogger(BookService.class);
+	public Map<Integer, Book> bookMap;
 	
-	private int id;
+	public int id;
 
 	public void initBookStore() {
 		this.bookMap = new HashMap<Integer, Book>();
@@ -36,9 +38,10 @@ public class BookService {
 		bookMap.remove(bookId);
 	}
 	
-	public void convertToJSON() {
+	/*public void writeToJSON() {
 		try {
 			JSONconvert.mapper.writeValue(new File("C:\\Users\\Administrator\\Documents\\QAC\\Bookstore\\bookstore.json"), bookMap);
+			System.out.println("Wrote store contents to file");
 		} catch (JsonGenerationException e) {
 			System.out.println("JSON Geneneration failed");
 			e.printStackTrace();
@@ -49,22 +52,19 @@ public class BookService {
 			System.out.println("Failed to write file");
 			e.printStackTrace();
 		}
-	}
+	}*/
 	
-	//public void addfromJSON() {
-	//	try {
-	//		JSONconvert.mapper.readValues(new File("C:\\Users\\Administrator\\Documents\\QAC\\Bookstore\\books.json"), bookMap);
-	//	} catch (JsonGenerationException e) {
-	//		System.out.println("JSON Geneneration failed");
-	//		e.printStackTrace();
-	//	} catch (JsonMappingException e) {
-	//		System.out.println("JSON Mapping failed");
-	//		e.printStackTrace();
-	//	} catch (IOException e) {
-	//		System.out.println("Failed to read file");
-	//		e.printStackTrace();
-	//	}
-	//}
+	/*public void readfromJSON() {
+		try {
+			JSONconvert.mapper.readValues(new File("C:\\Users\\Administrator\\Documents\\QAC\\Bookstore\\books.json"), bookMap);
+		} catch (JsonMappingException e) {
+			System.out.println("JSON Mapping failed");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("Failed to read file");
+			e.printStackTrace();
+		}
+	}*/
 	
 	public void output() {
 		for (int key : bookMap.keySet()) {
