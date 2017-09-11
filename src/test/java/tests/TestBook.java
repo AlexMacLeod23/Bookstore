@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import bookStore.Book;
+import bookStore.model.Book;
 
 public class TestBook {
 
