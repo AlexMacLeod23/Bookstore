@@ -4,6 +4,7 @@ import java.util.Map;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Alternative;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import org.apache.log4j.Logger;
@@ -13,8 +14,8 @@ import tools.JSONconvert;
 
 
 @ApplicationScoped
-@Alternative
-public class BookServiceImpl {
+@Default
+public class BookServiceImpl implements BookService{
 
 	private static final Logger LOGGER = Logger.getLogger(BookServiceImpl.class);
 	private Map<Integer, Book> bookMap;
